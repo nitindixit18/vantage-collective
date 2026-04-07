@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantage Collective | Precision Strategy & Visionary Design</title>
+    <meta name="description" content="Vantage Collective is a premier design and strategy studio.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/framer-motion@10.16.4/dist/framer-motion.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-dark': '#050505',
+                        'v-card': '#0d0d0d',
+                        'v-accent': '#f4f4f4',
+                        'v-gold': '#d4af37',
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    animation: {
+                        'noise': 'noise 0.2s infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        noise: {
+                            '0%, 100%': { transform: 'translate(0,0)' },
+                            '10%': { transform: 'translate(-5%,-5%)' },
+                            '20%': { transform: 'translate(-10%,5%)' },
+                            '30%': { transform: 'translate(5%,-10%)' },
+                            '40%': { transform: 'translate(-5%,15%)' },
+                            '50%': { transform: 'translate(-10%,5%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .noise-bg::before {
+            content: "";
+            position: fixed;
+            top: -100%; left: -100%; width: 300%; height: 300%;
+            background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        .mask-gradient {
+            -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+            mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+        }
+        .bento-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .bento-card:hover {
+            border-color: rgba(212,175,55,0.3);
+            background: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-v-dark text-v-accent font-sans selection:bg-v-gold selection:text-v-dark noise-bg antialiased overflow-x-hidden">
+    <!-- Sophisticated HUD Nav -->
+    <nav class="fixed top-8 left-1/2 -translate-x-1/2 z-50 flex items-center bg-white/5 backdrop-blur-xl border border-white/10 px-6 py-3 rounded-full gap-8 shadow-2xl">
+        <div class="font-display font-extrabold text-sm tracking-tighter">VANTAGE.</div>
+        <div class="h-4 w-[1px] bg-white/10"></div>
+        <div class="flex gap-6 text-[10px] uppercase tracking-[0.2em] font-medium opacity-60">
+            <a href="#work" class="hover:opacity-100 transition-opacity">Portfolio</a>
+            <a href="#about" class="hover:opacity-100 transition-opacity">Expertise</a>
+            <a href="#contact" class="hover:opacity-100 transition-opacity text-v-gold">Connect</a>
+        </div>
+    </nav>
+
+    <!-- Awwwards-Style Hero -->
+    <header class="relative h-screen flex flex-col justify-center items-center text-center px-6">
+        <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-v-gold/5 rounded-full blur-[160px] animate-float"></div>
+        </div>
+        
+        <div class="z-10 max-w-5xl">
+            <span class="inline-block px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-[10px] uppercase tracking-[0.3em] font-semibold text-v-gold mb-10 opacity-0 transition-all duration-1000 translate-y-4" id="hero-tag">2026 Collective Intelligence</span>
+            <h1 class="font-display text-7xl md:text-[140px] font-extrabold tracking-[-0.04em] leading-[0.85] mb-12 opacity-0" id="hero-title">
+                ELEVATING<br><span class="text-transparent" style="-webkit-text-stroke: 1px rgba(244,244,244,0.4);">STANDARDS.</span>
+            </h1>
+            <p class="max-w-xl mx-auto text-lg md:text-xl font-light opacity-50 leading-relaxed mb-16 opacity-0" id="hero-desc">
+                A high-precision design laboratory bridging the gap between strategic vision and digital performance.
+            </p>
+            <div class="flex justify-center gap-6 opacity-0" id="hero-cta">
+                <a href="#work" class="bg-v-accent text-v-dark px-10 py-5 rounded-full font-display font-bold text-sm uppercase tracking-wider transition-all hover:scale-105 active:scale-95">Explore Work</a>
+                <a href="#contact" class="flex items-center gap-3 px-10 py-5 border border-white/10 rounded-full font-display font-bold text-sm uppercase tracking-wider transition-all hover:bg-white/5">The Lab <span class="text-v-gold">→</span></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bento Grid 2.0 (Framer Inspired) -->
+    <section id="work" class="bg-v-dark py-32 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex justify-between items-end mb-20">
+                <h2 class="font-display text-4xl md:text-6xl font-bold tracking-tighter">Strategic<br>Narratives</h2>
+                <p class="text-[10px] uppercase tracking-[0.4em] opacity-40">Section 01 / Curation</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-12 auto-rows-[280px] gap-4">
+                <!-- Large Highlight -->
+                <div class="md:col-span-8 md:row-span-2 bento-card rounded-[40px] p-12 flex flex-col justify-between group overflow-hidden">
+                    <div class="flex justify-between items-start">
+                        <div class="w-12 h-12 rounded-2xl bg-v-gold/10 flex items-center justify-center border border-v-gold/20">
+                            <span class="text-v-gold text-xl italic font-display">A</span>
+                        </div>
+                        <span class="text-[10px] uppercase tracking-widest opacity-40">Interactive Excellence</span>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="font-display text-5xl md:text-7xl font-bold tracking-tighter mb-6 group-hover:text-v-gold transition-colors">Core Systems</h3>
+                        <p class="max-w-sm text-lg opacity-40 font-light">Engineered for absolute performance and fluid human interaction.</p>
+                    </div>
+                    <!-- Abstract Visual Element -->
+                    <div class="absolute -bottom-20 -right-20 w-80 h-80 bg-v-gold/5 rounded-full blur-3xl group-hover:bg-v-gold/10 transition-all duration-700"></div>
+                </div>
+
+                <!-- Vertical Stat -->
+                <div class="md:col-span-4 md:row-span-2 bento-card rounded-[40px] p-10 flex flex-col justify-between bg-v-gold text-v-dark hover:bg-white transition-all">
+                    <p class="text-xs uppercase tracking-[0.3em] font-bold">2026 Status</p>
+                    <div>
+                        <h4 class="font-display text-[120px] font-bold leading-none tracking-tighter -ml-2 select-none">99.</h4>
+                        <p class="text-3xl font-display font-bold leading-none -mt-4 opacity-80">Efficiency Rate</p>
+                    </div>
+                </div>
+
+                <!-- Content Square -->
+                <div class="md:col-span-4 bento-card rounded-[40px] p-10 flex flex-col justify-center">
+                    <p class="text-lg font-light leading-relaxed italic opacity-80">"Design is the silent ambassador of your brand."</p>
+                    <p class="text-[10px] uppercase tracking-widest mt-6 opacity-40">— Paul Rand</p>
+                </div>
+
+                <!-- Long Feature -->
+                <div class="md:col-span-8 bento-card rounded-[40px] p-10 flex items-center justify-between group">
+                    <div>
+                        <h4 class="font-display text-2xl font-bold mb-2">Global Connectivity</h4>
+                        <p class="text-xs opacity-50 uppercase tracking-[0.2em]">Distributed Intelligence / 24.7.365</p>
+                    </div>
+                    <div class="w-16 h-16 rounded-full border border-white/10 flex items-center justify-center group-hover:rotate-45 transition-transform duration-500">
+                        <span class="text-v-gold text-2xl">↗</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-v-dark py-40 border-t border-white/5 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-24">
+            <div class="max-w-xl">
+                <h3 class="font-display text-6xl md:text-8xl font-bold tracking-tighter mb-12">Start the<br>Legacy.</h3>
+                <p class="text-2xl font-light opacity-50 leading-relaxed mb-16">Collaborating with leaders who prioritize architectural design and technical dominance.</p>
+                <a href="mailto:hello@vantage.growthdsgn.com" class="text-3xl font-display font-medium border-b-2 border-v-gold pb-2 hover:text-v-gold transition-colors">hello@vantage.growthdsgn.com</a>
+            </div>
+            
+            <div class="grid grid-cols-2 gap-20">
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] text-v-gold mb-8">Navigation</h5>
+                    <ul class="flex flex-col gap-4 font-display font-bold text-sm tracking-widest opacity-40">
+                        <li><a href="#" class="hover:opacity-100">Index</a></li>
+                        <li><a href="#" class="hover:opacity-100">Archive</a></li>
+                        <li><a href="#" class="hover:opacity-100">Culture</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] uppercase tracking-[0.4em] text-v-gold mb-8">Social</h5>
+                    <ul class="flex flex-col gap-4 font-display font-bold text-sm tracking-widest opacity-40">
+                        <li><a href="#" class="hover:opacity-100">Instagram</a></li>
+                        <li><a href="#" class="hover:opacity-100">Twitter</a></li>
+                        <li><a href="#" class="hover:opacity-100">Awwwards</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto mt-40 pt-10 border-t border-white/5 flex justify-between items-center text-[8px] uppercase tracking-[0.5em] opacity-30">
+            <span>© 2026 Vantage Collective.</span>
+            <span>London—Dubai—Tokyo</span>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('load', () => {
+            const delay = (id, ms) => {
+                setTimeout(() => {
+                    const el = document.getElementById(id);
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, ms);
+            };
+
+            const ids = ['hero-tag', 'hero-title', 'hero-desc', 'hero-cta'];
+            ids.forEach((id, i) => {
+                const el = document.getElementById(id);
+                el.style.transition = 'all 1s cubic-bezier(0.16, 1, 0.3, 1)';
+                el.style.transform = 'translateY(30px)';
+                delay(id, 200 + (i * 150));
+            });
+        });
+    </script>
+</body>
+</html>
